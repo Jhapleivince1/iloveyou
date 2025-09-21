@@ -1,187 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Baby</title>
-    <style>
-        /* Basic reset and font styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Baby</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #FFB6C1, #FFC0CB);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-            font-size: 1.2rem;
-            padding: 20px;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ffb6c1, #ffc0cb);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem;
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 40px;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 2rem 1.2rem;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      animation: fadeInUp 1s ease;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #FF69B4;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
-            animation: bounceIn 1s ease-out;
-        }
+    h1 {
+      color: #ff69b4;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      animation: slideIn 1s ease;
+    }
 
-        input {
-            padding: 12px 20px;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            border: 2px solid #FF69B4;
-            width: 80%;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #ff69b4;
+      border-radius: 6px;
+      width: 90%;
+      margin-bottom: 1rem;
+    }
 
-        button {
-            padding: 12px 25px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            background-color: #FF69B4;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
-            margin-bottom: 30px;
-        }
+    button {
+      padding: 0.75rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      margin-top: 0.5rem;
+    }
 
-        .heart {
-            color: #FF1493;
-            font-size: 2.5rem;
-            margin: 30px 0;
-        }
+    button:hover {
+      background-color: #ff1493;
+    }
 
-        .letter-part {
-            text-align: left;
-            white-space: pre-wrap;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin: 20px 0;
-            padding: 20px 25px;
-            background: rgba(255, 240, 240, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Hide both parts initially */
-        }
+    .letter-part {
+      display: none;
+      text-align: left;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      margin-top: 1.5rem;
+      background-color: rgba(255, 240, 240, 0.95);
+      padding: 1.2rem;
+      border-radius: 10px;
+      animation: fadeInUp 0.7s ease;
+      font-size: 0.95rem;
+    }
 
-        .error {
-            color: #FF4500;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 20px;
-        }
+    .letter-part p {
+      margin-bottom: 0.8rem;
+    }
 
-        /* Animation for fade-in */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+    .error {
+      color: #ff4500;
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
 
-        /* Animation for h1 text */
-        @keyframes bounceIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            60% {
-                transform: translateY(20px);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-    </style>
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOutLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hide-left {
+      animation: fadeOutLeft 0.5s forwards;
+    }
+
+    .show-right {
+      display: block;
+      animation: fadeInRight 0.6s ease-out;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .letter-part {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>For My Baby 💖</h1>
-        <div id="message"></div>
+  <div class="container" id="mainContainer">
+    <h1>For My Baby 💖</h1>
+    <div id="message"></div>
 
-        <!-- First Part of the letter -->
-        <div id="loveLetterPart1" class="letter-part">
-            <p>Dear baby,</p>
-            <p>Thank you for the joy you’ve brought into my life. I truly treasure every moment we spend together, even if it’s just online. I love you with all my heart, and I never want to lose you. We may face more struggles and arguments in the future, but I hope we can stay strong together and overcome those challenges side by side.</p>
-            <p>I really love you. I did say that you didn’t do anything for me, but that was not true. You gave me happiness the moment you entered my life. You may be distant at times, and because of that, I tend to overthink, but that’s fine as long as we’re still together at the end of the day. We argue often, but we always fix things, and that’s what matters most.</p>
-            <button onclick="showNextPage()">Next Page</button>
-        </div>
-
-        <!-- Second Part of the letter -->
-        <div id="loveLetterPart2" class="letter-part">
-            <p>I hope that in the near future, we’ll feel even more comfortable with each other, and that we can fully trust one another. Trust is the foundation of every relationship. I won’t lie to you, because I know that lying leads to arguments and trust issues. I deeply care about you, and I will do anything to make our relationship work.</p>
-            <p>I love you so much, my sweet girlfriend. I may be harsh on you sometimes because I get swept up in my emotions, but please know that I love you from the bottom of my heart. If possible, I’d like to spend the rest of my life with you, baby.</p>
-            <p>I LOVE YOU SO MUCHHH BABYYYYYYY!!!!!</p>
-        </div>
-
-        <!-- Password Section -->
-        <div id="passwordSection">
-            <input type="password" id="password" placeholder="Enter Password">
-            <button onclick="checkPassword()">Submit</button>
-        </div>
+    <!-- Password Section -->
+    <div id="passwordSection">
+      <input type="password" id="password" placeholder="Enter Password" />
+      <br />
+      <button onclick="checkPassword()">Submit</button>
     </div>
 
-    <script>
-        // Correct password for the love letter
-        const correctPassword = "iloveyou";  // Change this to your desired password
+    <!-- First Part of Letter -->
+    <div id="loveLetterPart1" class="letter-part">
+      <p>Dear baby,</p>
+      <p>
+        Thank you for the joy you’ve brought into my life. I truly treasure every moment we spend together, even if it’s just online. I love you with all my heart, and I never want to lose you.
+      </p>
+      <p>
+        We may face more struggles and arguments in the future, but I hope we can stay strong together and overcome those challenges side by side.
+      </p>
+      <p>
+        I really love you. I did say that you didn’t do anything for me, but that was not true. You gave me happiness the moment you entered my life. You may be distant at times, and because of that, I tend to overthink, but that’s fine as long as we’re still together at the end of the day.
+      </p>
+      <button onclick="showNextPage()">Next Page</button>
+    </div>
 
-        function checkPassword() {
-            const password = document.getElementById("password").value;
-            const messageDiv = document.getElementById("message");
-            const loveLetterPart1Div = document.getElementById("loveLetterPart1");
-            const passwordSectionDiv = document.getElementById("passwordSection");
+    <!-- Second Part of Letter -->
+    <div id="loveLetterPart2" class="letter-part">
+      <p>
+        I hope that in the near future, we’ll feel even more comfortable with each other, and that we can fully trust one another. Trust is the foundation of every relationship.
+      </p>
+      <p>
+        I won’t lie to you, because I know that lying leads to arguments and trust issues. I deeply care about you, and I will do anything to make our relationship work.
+      </p>
+      <p>
+        I love you so much, my sweet girlfriend. I may be harsh on you sometimes because I get swept up in my emotions, but please know that I love you from the bottom of my heart.
+      </p>
+      <p>
+        If possible, I’d like to spend the rest of my life with you, baby.
+      </p>
+      <p style="font-size: 1.3rem; text-align: center;">💗 I LOVE YOU SO MUCHHH BABYYYYYYY!!!!! 💗</p>
+    </div>
+  </div>
 
-            // Debugging log to see the input value
-            console.log(password);
+  <script>
+    const correctPassword = "iloveyou";
 
-            // Check if the password is correct
-            if (password === correctPassword) {
-                loveLetterPart1Div.style.display = "block";  // Show the first part of the love letter
-                passwordSectionDiv.style.display = "none";  // Hide the password input section
-                messageDiv.style.display = "none";      // Hide the error message
-            } else {
-                messageDiv.style.display = "block";  // Show the error message
-                messageDiv.innerHTML = "<p class='error'>Incorrect password. Please try again.</p>";
-            }
-        }
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const messageDiv = document.getElementById("message");
+      const loveLetterPart1 = document.getElementById("loveLetterPart1");
+      const passwordSection = document.getElementById("passwordSection");
 
-        function showNextPage() {
-            const loveLetterPart1Div = document.getElementById("loveLetterPart1");
-            const loveLetterPart2Div = document.getElementById("loveLetterPart2");
+      if (password === correctPassword) {
+        passwordSection.style.display = "none";
+        messageDiv.style.display = "none";
+        loveLetterPart1.style.display = "block";
+      } else {
+        messageDiv.innerHTML = "<p class='error'>Incorrect password. Please try again.</p>";
+      }
+    }
 
-            loveLetterPart1Div.style.display = "none";  // Hide the first part
-            loveLetterPart2Div.style.display = "block";  // Show the second part
-        }
-    </script>
+    function showNextPage() {
+      const part1 = document.getElementById("loveLetterPart1");
+      const part2 = document.getElementById("loveLetterPart2");
 
+      part1.classList.add("hide-left");
+
+      setTimeout(() => {
+        part1.style.display = "none";
+        part2.classList.add("show-right");
+      }, 500);
+    }
+  </script>
 </body>
 </html>
